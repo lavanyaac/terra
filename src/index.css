@@ -29,6 +29,7 @@ body {
 	border: none;
 	background-color: #67E2A8;
 	transition: 0.5s all;
+	cursor:pointer;
 }
 .go_btn:hover{
 	background-color: #8EFFCA;
