@@ -30,6 +30,7 @@ body {
 	background-color: #67E2A8;
 	transition: 0.5s all;
 	cursor:pointer;
+	border-radius: 2em
 }
 .go_btn:hover{
 	background-color: #8EFFCA;
@@ -37,8 +38,24 @@ body {
 
 
 /***************************************/
-/*						Search Form              */
+/*						Results.                 */
 /***************************************/
+.results-container{
+	display:flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 100px;
+}
+.real-estate-agency{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-bottom: 1px solid silver;
+	width: 400px;
+}
+.real-estate-agency p{
+	margin: 0;
+}
 /***************************************/
 /*						Search Form              */
 /***************************************/

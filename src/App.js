@@ -10,6 +10,11 @@ class App extends Component {
       realEstateAgencies: []
     }
   }
+  updateRealEstateAgencies(data){
+    this.setState({
+      realEstateAgencies: data
+    })
+  }
   render() {
     const { realEstateAgencies } = this.state;
     return (
@@ -18,9 +23,10 @@ class App extends Component {
           <h1 className="App-title">Terra</h1>
         </header>
         <section>
-          <SearchForm/>
+          <SearchForm updateRealEstateAgencies={this.updateRealEstateAgencies.bind(this)}/>
           <SearchResults 
-          dataExists={realEstateAgencies.length === 0 ? false: true }/>
+          dataExists={realEstateAgencies.length === 0 ? false: true }
+          realEstateAgencies={this.state.realEstateAgencies}/>
         </section>
       </div>
     );

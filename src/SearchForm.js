@@ -30,7 +30,7 @@ class SearchForm extends Component {
     const secondLatLng = this._getLatLng(this._secondAutocomplete);
     axios.get('http://localhost:3001/locations?first_loc=' +firstLatLng+'&second_loc='+secondLatLng)
     .then(response => {
-      console.log(response);
+      this.props.updateRealEstateAgencies(response.data)
     })
     .catch(error => {
       console.log("Error when fetching real estate agencies data");
