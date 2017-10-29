@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import mapcolor from './configdata/mapcolor';
-
-// import axios from 'axios';
 const google = window.google;
 
 
@@ -27,7 +25,7 @@ class RealEstateAgencyMap extends Component {
     map.mapTypes.set('styled_map', styledMapType);
     map.setMapTypeId('styled_map');
 
-    const addressMarkerImage = "/map-marker-address_for_label.png";
+    const addressMarkerImage = "/images/map-marker-address-for-label.png";
     for(const point of [firstLatLng, secondLatLng]){
       const marker = new google.maps.Marker({
         position: {lat: point.lat, lng: point.lng},
@@ -46,14 +44,14 @@ class RealEstateAgencyMap extends Component {
       marker.setMap(map);
     }
 
-    const markerImage = "/map-marker-amne7.png";
+    const markerImage = "/images/map-marker.png";
     for(const [i,point] of this.props.mapData.entries()){
 	    const marker = new google.maps.Marker({
 	      position: {lat: point.lat, lng: point.lng},
 	      map: map,
 	      title: point.name,
         label:{
-          text: (i).toString(),
+          text: (i+1).toString(),
         color: 'white',
         fontSize: "12px"
         },
@@ -64,13 +62,26 @@ class RealEstateAgencyMap extends Component {
 	    });
       marker.setMap(map);
 		}
+
+    // google.maps.event.addDomListener(window, "resize", function() {
+    //   var center = map.getCenter();
+    //   google.maps.event.trigger(map, "resize");
+    //   map.setCenter(center);
+    //   });
   }
 
   componentDidMount(){
+    
+    this.initMap(this.props.searchAddress);
+  }
+
+  componentDidUpdate(){
+    
   	this.initMap(this.props.searchAddress);
   }
 
   render() {
+    
     return (
       <div className="real-estate-agency-map">
         <div id="map"

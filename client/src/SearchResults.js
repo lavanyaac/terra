@@ -11,7 +11,7 @@ class SearchResults extends Component {
       <div className="search-results">
         <div className="results-container">
           {
-            realEstateAgencies.map((data, i) => <RealEstateAgency realEstateAgency={data} key={i}/>)
+            realEstateAgencies.map((data, i) => <RealEstateAgency realEstateAgency={data} key={i} index={i}/>)
           }
         </div>
         <div className="map-container">

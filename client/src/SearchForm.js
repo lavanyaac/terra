@@ -27,44 +27,39 @@ class SearchForm extends Component {
   }
 
   handleGoButtonClick(){
-    var devMode = false;
-    let url;
-    // var url ="/test"
-    // if(!devMode){
-      const firstLatLng = this._getLatLng(this._firstAutocomplete);
-      const secondLatLng = this._getLatLng(this._secondAutocomplete);
-      if(!firstLatLng){
-        this.setState({
-          invalid_first_address:true
-        });
-      }else{
-        this.setState({
-          invalid_first_address:false
-        });
-      }
-      if(!secondLatLng){
-        this.setState({
-          invalid_second_address:true
-        });
-      }else{
-        this.setState({
-          invalid_second_address:false
-        });
-      }
-      if(firstLatLng && secondLatLng){
-        url=`/locations?first_loc=${firstLatLng}&second_loc=${secondLatLng}`;
-        axios.get(url)
-            .then(response => {
-              this.props.updateSearchAddresses(firstLatLng,secondLatLng);
-              this.props.updateRealEstateAgencies(response.data);
-            })
-            .catch(error => {
-              console.log("Error when fetching real estate agencies data");
-              console.error(error);
-            });
-      }
-      
-      // }
+
+    const firstLatLng = this._getLatLng(this._firstAutocomplete);
+    const secondLatLng = this._getLatLng(this._secondAutocomplete);
+    if(!firstLatLng){
+      this.setState({
+        invalid_first_address:true
+      });
+    }else{
+      this.setState({
+        invalid_first_address:false
+      });
+    }
+    if(!secondLatLng){
+      this.setState({
+        invalid_second_address:true
+      });
+    }else{
+      this.setState({
+        invalid_second_address:false
+      });
+    }
+    if(firstLatLng && secondLatLng){
+      const url=`/locations?first_loc=${firstLatLng}&second_loc=${secondLatLng}`;
+      axios.get(url)
+          .then(response => {
+            this.props.updateSearchAddresses(firstLatLng,secondLatLng);
+            this.props.updateRealEstateAgencies(response.data);
+          })
+          .catch(error => {
+            console.log("Error when fetching real estate agencies data");
+            console.error(error);
+          });
+    }
   }
 
   _getLatLng(autocompleteObj){

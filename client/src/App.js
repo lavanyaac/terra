@@ -32,7 +32,7 @@ class App extends Component {
         <header className="top-bar">
           <div className="App-header">
             <div className="logo-container">
-              <img src="/terra-logo.png"/>
+              <img src="/images/terra-logo.png"/>
             </div>
           </div>
         </header>

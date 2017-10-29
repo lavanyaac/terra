@@ -25,50 +25,6 @@ img {
 }
 
 
-/*h1 {
-    font-weight: 900;
-    font-size: 3.3rem;
-    line-height: 1.35;
-    margin: 0.8em 0;
-}
-
-h2 {
-    font-weight: 800;
-    font-size: 2.3rem;
-    line-height: 1.45;
-    margin: 1em 0;
-}
-
-h3 {
-    font-weight: 700;
-    font-size: 1.85rem;
-    line-height: 1.6;
-    margin: 1.3em 0;
-}
-
-h4 {
-    font-weight: 700;
-    font-size: 1.55rem;
-    line-height: 1.7;
-    margin: 1.5em 0;
-}
-
-h5 {
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 1.6;
-    margin: 1.6em 0;
-}
-
-h6 {
-    font-weight: 500;
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin: 1.6em 0;
-}
-*/
-
-
 /***************************************/
 
 
@@ -87,8 +43,6 @@ h6 {
 }
 
 .App-header {
-    /*  background-color: #222;
-*/
     color: #222;
     padding-right: 15px;
     padding-left: 15px;
@@ -123,7 +77,6 @@ h6 {
     }
 }
 
-.
 /***************************************/
 
 
@@ -131,20 +84,9 @@ h6 {
 
 
 /***************************************/
-
-.search-real-estate-agencies {
-    /*padding: 1.1em 1.1em 2.2em  1.1em;*/
-    /*box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
-	-webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);*/
-}
-
-.search-real-estate-agencies {
+.search-real-estate-agencies{
     padding-right: 15px;
     padding-left: 15px;
-    /*   margin-right: auto;
-    margin-left: auto;
-        margin-bottom: 30px;*/
     margin: 30px auto;
     position: relative;
 }
@@ -157,9 +99,9 @@ h6 {
 }
 
 .search-real-estate-agencies label {
-    padding: 1em;
-    margin-left: 1.4em;
-    font-size: 1.2em;
+    padding: 1rem;
+    margin-left: 1.4rem;
+    /*font-size: 1.2rem;*/
     position: relative;
 }
 
@@ -199,7 +141,6 @@ h6 {
 .go_btn {
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
-    /*margin-left: 2.5em;*/
     outline: none;
     border: none;
     background-color: #67E2A8;
@@ -230,13 +171,47 @@ h6 {
         width: 970px
     }
 }
-
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
     .search-real-estate-agencies {
         width: 1270px
     }
 }
 
+@media (max-width: 1200px) {
+    .search-real-estate-agencies input {
+    	width: 20rem;
+		}
+}
+@media (max-width: 1000px) {
+    .search-real-estate-agencies{
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+    }
+    .search-real-estate-agencies input{
+			width: 30rem;
+    }
+    .search-real-estate-agencies p{
+			font-size: 2rem;
+    }
+}
+@media (max-width: 600px) {
+  .search-real-estate-agencies p{
+		font-size: 1.6rem;
+		
+  }
+}
+
+@media (max-width: 500px) {
+	.search-real-estate-agencies input{
+			width: 20rem;
+    }
+  .search-real-estate-agencies p{
+		font-size: 1.4rem;
+		
+  }
+}
 
 /***************************************/
 
@@ -249,12 +224,27 @@ h6 {
 .search-results {
     display: flex;
     padding: 30px 150px;
-    /*background: rgb(242,242,242);*/
     background-color: #eee;
     height: 700px;
 }
 
+@media (max-width: 1500px) {
+	.search-results {
+		padding: 30px 100px;
+	}
+}
 
+@media (max-width: 1300px) {
+	.search-results {
+		padding: 30px 75px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.search-results {
+		padding: 30px;
+	}
+}
 
 /***************************************/
 
@@ -272,9 +262,6 @@ h6 {
 }
 
 .real-estate-agency {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: flex-start;*/
     border-bottom: 1px solid silver;
     width: 500px;
     background: white;
@@ -293,38 +280,37 @@ h6 {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-.real-estate-agency .REA-name {
-    font-weight: bold;
+.REA-name {
+    font-weight: 500;
 }
 
-.real-estate-agency .REA-address {
+.REA-address {
     font-size: 0.9rem;
     color: #525975;
 }
 
-.real-estate-agency .text-container,
-.real-estate-agency .distance-container {
+.text-container, .distance-container {
     display: inline-block;
 }
 
-.real-estate-agency .text-container {
+.text-container {
     width: 70%;
 }
 
-.real-estate-agency .distance-container {
+.distance-container {
     width: 30%;
     height: 100%;
     vertical-align: top;
     text-align: right;
 }
 
-.real-estate-agency .distance-container .REA-distance {
+.REA-distance {
     font-size: 45px;
     display: inline-block;
     font-weight: 100;
 }
 
-.real-estate-agency .distance-container .REA-distance-label {
+.REA-distance-label {
     font-size: 0.9rem;
     display: inline-block;
     margin-left: 5px;
@@ -334,8 +320,129 @@ h6 {
 .map-container {
     flex: 3;
     height: 100%;
+    position: relative;
 }
 
+@media (max-width: 1500px) {
+	.real-estate-agency {
+		    width: 400px;
+	}
+}
+
+@media (max-width: 800px) {
+	.real-estate-agency {
+		width: 300px;
+	}
+}
+@media (max-width: 600px) {
+	.search-results {
+    flex-direction: column;
+    height: 100%;
+  }
+	.real-estate-agency {
+		width: 500px;
+	}
+	
+	.map-container {
+		height: 500px;
+		flex:1;
+	}
+	.REA-distance {
+    font-size: 30px;
+  }
+  .REA-distance-label {
+    font-size: 0.6rem;
+   }
+}
+
+@media (max-width: 500px) {
+	.real-estate-agency {
+		width: 400px;
+	}
+	}
+
+@media (max-width: 400px) {
+	.real-estate-agency {
+		width: 330px;
+	}
+
+	.REA-distance {
+    font-size: 20px;
+  }
+
+  .REA-distance-label {
+    font-size: 0.6rem;
+   }
+  .map-container {
+		height: 300px;
+	}
+
+}
+/***************************************/
+
+
+/*			 List View - Ratings           */
+
+
+/***************************************/
+
+.ratings {
+  width: 85px;
+  height: 17px;
+  display: inline-block;
+  position: relative;
+}
+.ratings:before, .ratings:after {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ratings:before {
+  color: rgb(51,116,117);
+  content: "\f006\f006\f006\f006\f006";
+}
+.ratings:after {
+  color: #43989A;
+  content: "\f005\f005\f005\f005\f005";
+  overflow: hidden;
+}
+
+.ratings.one:after {
+  content: "\f005";
+}
+
+.ratings.onehalf:after {
+  content: "\f005\f089";
+}
+
+.ratings.two:after {
+  content: "\f005\f005";
+}
+
+.ratings.twohalf:after {
+  content: "\f005\f005\f089";
+}
+
+.ratings.three:after {
+  content: "\f005\f005\f005";
+}
+
+.ratings.threehalf:after {
+  content: "\f005\f005\f005\f089";
+}
+
+.ratings.four:after {
+  content: "\f005\f005\f005\f005";
+}
+
+.ratings.fourhalf:after {
+  content: "\f005\f005\f005\f005\f089";
+}
 
 
 /***************************************/
@@ -354,26 +461,10 @@ h6 {
 
 #map {
     height: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    /*height: 0;*/
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    padding-top: 30px;
+    position: relative;
 }
-
-.mapLabel {
-    color: red;
-}
-
-
-
-/* html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }*/
-
-
-/***************************************/
-
-
-/*						Search Form              */
-
-
-/***************************************/
