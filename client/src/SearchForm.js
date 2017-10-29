@@ -27,11 +27,11 @@ class SearchForm extends Component {
 
   handleGoButtonClick(){
     var devMode = true;
-    var url ="http://localhost:3001/test"
+    var url ="/test"
     if(!devMode){
       const firstLatLng = this._getLatLng(this._firstAutocomplete);
       const secondLatLng = this._getLatLng(this._secondAutocomplete);
-      url='http://localhost:3001/locations?first_loc=' +firstLatLng+'&second_loc='+secondLatLng;
+      url='/locations?first_loc=' +firstLatLng+'&second_loc='+secondLatLng;
     }
     
     axios.get(url)
