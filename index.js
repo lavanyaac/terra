@@ -20,6 +20,13 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('/', function(req, res) {
+  console.log("/");
+    res.sendFile(path.join(__dirname + 'client/build/index.html'));
+});
+
 app.get('/location', function (req, res) {
   res.send("Hello World");
 });
