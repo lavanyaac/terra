@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RealEstateAgency from './RealEstateAgency';
+import RealEstateAgencyMap from './RealEstateAgencyMap';
+
 
 class SearchResults extends Component {
   render() {
@@ -8,13 +10,13 @@ class SearchResults extends Component {
     return (
       !dataExists ? null :
       <div className="search-results">
-        <header className="section-header">
-          <h1 className="section-title">Search Results</h1>
-        </header>
         <div className="results-container">
           {
             realEstateAgencies.map((data, i) => <RealEstateAgency realEstateAgency={data} key={i}/>)
           }
+        </div>
+        <div className="map-container">
+          <RealEstateAgencyMap mapData={realEstateAgencies}/>
         </div>
       </div>
     );

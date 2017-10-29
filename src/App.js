@@ -15,6 +15,7 @@ class App extends Component {
       realEstateAgencies: data
     })
   }
+
   render() {
     const { realEstateAgencies } = this.state;
     return (

@@ -26,9 +26,15 @@ class SearchForm extends Component {
   }
 
   handleGoButtonClick(){
-    const firstLatLng = this._getLatLng(this._firstAutocomplete);
-    const secondLatLng = this._getLatLng(this._secondAutocomplete);
-    axios.get('http://localhost:3001/locations?first_loc=' +firstLatLng+'&second_loc='+secondLatLng)
+    var devMode = true;
+    var url ="http://localhost:3001/test"
+    if(!devMode){
+      const firstLatLng = this._getLatLng(this._firstAutocomplete);
+      const secondLatLng = this._getLatLng(this._secondAutocomplete);
+      url='http://localhost:3001/locations?first_loc=' +firstLatLng+'&second_loc='+secondLatLng;
+    }
+    
+    axios.get(url)
     .then(response => {
       this.props.updateRealEstateAgencies(response.data)
     })

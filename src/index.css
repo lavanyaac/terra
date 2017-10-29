@@ -38,13 +38,21 @@ body {
 
 
 /***************************************/
-/*						Results.                 */
+/*						Results                  */
+/***************************************/
+.search-results{
+	display: flex;
+}
+
+/***************************************/
+/*			Results - List View            */
 /***************************************/
 .results-container{
 	display:flex;
 	flex-direction: column;
 	align-items: flex-start;
 	margin-left: 100px;
+	border: 1px solid silver;
 }
 .real-estate-agency{
 	display: flex;
@@ -56,12 +64,28 @@ body {
 .real-estate-agency p{
 	margin: 0;
 }
+
+.map-container{
+	flex: 3;
+}
 /***************************************/
-/*						Search Form              */
+/*			 Results - Map View           */
 /***************************************/
-/***************************************/
-/*						Search Form              */
-/***************************************/
+.real-estate-agency-map{
+	height:900px;
+	width: 900px;
+	border: 1px solid silver;
+}
+#map {
+        height: 100%;
+        
+      }
+      
+     /* html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }*/
 /***************************************/
 /*						Search Form              */
 /***************************************/
