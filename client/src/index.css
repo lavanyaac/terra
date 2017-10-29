@@ -1,91 +1,379 @@
+/***************************************/
+
+
+/*						General Settings         */
+
+
+/***************************************/
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem;
+    line-height: 1.618;
+    font-family: 'Roboto', sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+
+/*h1 {
+    font-weight: 900;
+    font-size: 3.3rem;
+    line-height: 1.35;
+    margin: 0.8em 0;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 2.3rem;
+    line-height: 1.45;
+    margin: 1em 0;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.85rem;
+    line-height: 1.6;
+    margin: 1.3em 0;
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 1.55rem;
+    line-height: 1.7;
+    margin: 1.5em 0;
+}
+
+h5 {
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin: 1.6em 0;
+}
+
+h6 {
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 1.6em 0;
+}
+*/
+
+
 /***************************************/
+
+
+/*						App 			               */
+
+
+/***************************************/
+
+.App {
+    text-align: left;
+}
+
+.top-bar {
+    border-bottom: 1px solid #dedede;
+    padding: 20px 0;
+}
+
+.App-header {
+    /*  background-color: #222;
+*/
+    color: #222;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.logo-container {
+    height: 60px;
+    width: 60px;
+}
+
+.logo-container p {
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .App-header {
+        width: 750px
+    }
+}
+
+@media (min-width: 992px) {
+    .App-header {
+        width: 970px
+    }
+}
+
+@media (min-width: 1200px) {
+    .App-header {
+        width: 1170px
+    }
+}
+
+.
+/***************************************/
+
+
 /*						Search Form              */
+
+
 /***************************************/
-.search-real-estate-agencies{
-	padding: 1.1em 1.1em 2.2em  1.1em;
+
+.search-real-estate-agencies {
+    /*padding: 1.1em 1.1em 2.2em  1.1em;*/
+    /*box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);*/
 }
-.search-real-estate-agencies input{
-	padding: 1em 2.5em;
-	font-size: 1.2em;
-	width: 20em;
+
+.search-real-estate-agencies {
+    padding-right: 15px;
+    padding-left: 15px;
+    /*   margin-right: auto;
+    margin-left: auto;
+        margin-bottom: 30px;*/
+    margin: 30px auto;
+    position: relative;
 }
-.search-real-estate-agencies label{
-	padding: 1em;
-	margin-left: 1.4em;
-	font-size: 1.2em;
-	position: relative;
+
+
+.search-real-estate-agencies p {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-left: 3.4rem;
 }
-.go_btn{
-	padding: 1em 2.5em;
-  font-size: 1.2em;
-	margin-left: 2.5em;
-	outline: none;
-	border: none;
-	background-color: #67E2A8;
-	transition: 0.5s all;
-	cursor:pointer;
-	border-radius: 2em
+
+.search-real-estate-agencies label {
+    padding: 1em;
+    margin-left: 1.4em;
+    font-size: 1.2em;
+    position: relative;
 }
-.go_btn:hover{
-	background-color: #8EFFCA;
+
+.search-real-estate-agencies input {
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
+    width: 26rem;
+    border: none;
+    border-bottom: 2px solid #666;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-real-estate-agencies input:focus {
+    border-bottom: 4px solid #67E2A8;
+}
+
+.search-real-estate-agencies input::placeholder {
+    color: silver;
+}
+
+.hidden-error-msg {
+    display: none;
+}
+
+.error-msg {
+    position: absolute;
+    left: 2rem;
+    top: 4rem;
+    width: 26rem;
+    font-size: 0.8rem;
+    line-height: 30px;
+    color: rgb(244, 67, 54);
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.go_btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    /*margin-left: 2.5em;*/
+    outline: none;
+    border: none;
+    background-color: #67E2A8;
+    transition: 0.5s all;
+    cursor: pointer;
+    border-radius: 2rem
+}
+
+.go_btn:hover {
+    background-color: #8EFFCA;
+}
+
+.fa {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+}
+
+
+@media (min-width: 768px) {
+    .search-real-estate-agencies {
+        width: 750px
+    }
+}
+
+@media (min-width: 992px) {
+    .search-real-estate-agencies {
+        width: 970px
+    }
+}
+
+@media (min-width: 1200px) {
+    .search-real-estate-agencies {
+        width: 1270px
+    }
 }
 
 
 /***************************************/
+
+
 /*						Results                  */
-/***************************************/
-.search-results{
-	display: flex;
-}
+
 
 /***************************************/
+
+.search-results {
+    display: flex;
+    padding: 30px 150px;
+    /*background: rgb(242,242,242);*/
+    background-color: #eee;
+    height: 700px;
+}
+
+
+
+/***************************************/
+
+
 /*			Results - List View            */
+
+
 /***************************************/
-.results-container{
-	display:flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-left: 100px;
-	border: 1px solid silver;
-}
-.real-estate-agency{
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	border-bottom: 1px solid silver;
-	width: 400px;
-}
-.real-estate-agency p{
-	margin: 0;
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: scroll;
 }
 
-.map-container{
-	flex: 3;
+.real-estate-agency {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: flex-start;*/
+    border-bottom: 1px solid silver;
+    width: 500px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 3px #ccc;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    padding: 20px;
 }
+
+.real-estate-agency p {
+    margin: 0;
+}
+
+.real-estate-agency:hover {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.real-estate-agency .REA-name {
+    font-weight: bold;
+}
+
+.real-estate-agency .REA-address {
+    font-size: 0.9rem;
+    color: #525975;
+}
+
+.real-estate-agency .text-container,
+.real-estate-agency .distance-container {
+    display: inline-block;
+}
+
+.real-estate-agency .text-container {
+    width: 70%;
+}
+
+.real-estate-agency .distance-container {
+    width: 30%;
+    height: 100%;
+    vertical-align: top;
+    text-align: right;
+}
+
+.real-estate-agency .distance-container .REA-distance {
+    font-size: 45px;
+    display: inline-block;
+    font-weight: 100;
+}
+
+.real-estate-agency .distance-container .REA-distance-label {
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-left: 5px;
+    color: #525975;
+}
+
+.map-container {
+    flex: 3;
+    height: 100%;
+}
+
+
+
 /***************************************/
+
+
 /*			 Results - Map View           */
+
+
 /***************************************/
-.real-estate-agency-map{
-	height:900px;
-	width: 900px;
-	border: 1px solid silver;
+
+.real-estate-agency-map {
+    height: 100%;
+    width: 100%;
+    border: 1px solid silver;
 }
+
 #map {
-        height: 100%;
-        
-      }
-      
-     /* html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.mapLabel {
+    color: red;
+}
+
+
+
+/* html, body {
         height: 100%;
         margin: 0;
         padding: 0;
       }*/
+
+
 /***************************************/
+
+
 /*						Search Form              */
+
+
 /***************************************/

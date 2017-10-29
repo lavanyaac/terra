@@ -1,41 +1,78 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import mapcolor from './configdata/mapcolor';
+
+// import axios from 'axios';
 const google = window.google;
 
 
 class RealEstateAgencyMap extends Component {
 
-	initMap() {
-    var myLatLng = {lat: 37.331571, lng: -121.9051834};
+	initMap(latLng) {
+    const labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let labelIndex = 0;
 
-    console.log("NO NO NO NO No", this.map);
-    var map = new google.maps.Map(this.map, {
+    const firstLatLng = {lat: latLng[0][0], lng: latLng[0][1], name: 'First Location'};
+    const secondLatLng = {lat: latLng[1][0], lng: latLng[1][1], name: 'Second Location'};
+
+    const styledMapType = new google.maps.StyledMapType(mapcolor,{name: 'Styled Map'});
+
+    const map = new google.maps.Map(this.map, {
       zoom: 11,
-      center: {lat: 37.331571, lng: -121.9051834}
+      center: firstLatLng,
+      mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+              'styled_map']
+    }
     });
-    const image = "/map-marker-amne5.png"
-    for(const point of this.props.mapData){
-	    var marker = new google.maps.Marker({
+    map.mapTypes.set('styled_map', styledMapType);
+    map.setMapTypeId('styled_map');
+
+    const addressMarkerImage = "/map-marker-address_for_label.png";
+    for(const point of [firstLatLng, secondLatLng]){
+      const marker = new google.maps.Marker({
+        position: {lat: point.lat, lng: point.lng},
+        map: map,
+        title: point.name,
+        icon: {
+          url:addressMarkerImage
+        },
+          label:{
+          text: labels[labelIndex++ % labels.length],
+        color: 'white',
+        fontSize: "12px"
+        }
+        
+      });
+      marker.setMap(map);
+    }
+
+    const markerImage = "/map-marker-amne7.png";
+    for(const [i,point] of this.props.mapData.entries()){
+	    const marker = new google.maps.Marker({
 	      position: {lat: point.lat, lng: point.lng},
 	      map: map,
 	      title: point.name,
-	      icon: image
+        label:{
+          text: (i).toString(),
+        color: 'white',
+        fontSize: "12px"
+        },
+        
+	      icon: {
+          url:markerImage
+        },
 	    });
+      marker.setMap(map);
 		}
-
   }
+
   componentDidMount(){
-  	this.initMap();
+  	this.initMap(this.props.searchAddress);
   }
 
   render() {
-    const { dataExists, realEstateAgencies } = this.props; 
-
     return (
       <div className="real-estate-agency-map">
-        <header className="section-header">
-          <h1 className="section-title">Map Area</h1>
-        </header>
         <div id="map"
         ref={(ref)=> this.map = ref}>
         </div>

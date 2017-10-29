@@ -23,8 +23,7 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/', function(req, res) {
-  console.log("/");
-    res.sendFile(path.join(__dirname + 'client/build/index.html'));
+  res.sendFile(path.join(__dirname + 'client/build/index.html'));
 });
 
 app.get('/location', function (req, res) {
@@ -50,7 +49,6 @@ app.get('/locations', function (req, res) {
   	
   	for(const row of values){
   		for(const data of row.data.results){
-  			// console.log(data);
   			const val = {
   				'name': data.name, 
   				'place_id':data.place_id, 
@@ -60,7 +58,6 @@ app.get('/locations', function (req, res) {
   				'lat': data.geometry.location.lat,
   				'lng': data.geometry.location.lng,
   				'distance':0
-
   			}
   			if(!valueExists(realEstateAgencies, val)){
   				realEstateAgencies.push(val);
@@ -83,7 +80,6 @@ app.get('/locations', function (req, res) {
   			realEstateAgencies[index]['address'] = destinations[index];
   		}
   	}
-
   	realEstateAgencies.sort(function(a,b){
   		return a.distance - b.distance;
   	})

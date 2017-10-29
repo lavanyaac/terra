@@ -5,8 +5,7 @@ import RealEstateAgencyMap from './RealEstateAgencyMap';
 
 class SearchResults extends Component {
   render() {
-    const { dataExists, realEstateAgencies } = this.props; 
-    console.log(dataExists, realEstateAgencies)
+    const { dataExists, realEstateAgencies, searchAddress } = this.props; 
     return (
       !dataExists ? null :
       <div className="search-results">
@@ -16,7 +15,8 @@ class SearchResults extends Component {
           }
         </div>
         <div className="map-container">
-          <RealEstateAgencyMap mapData={realEstateAgencies}/>
+          <RealEstateAgencyMap mapData={realEstateAgencies}
+          searchAddress={ searchAddress }/>
         </div>
       </div>
     );
