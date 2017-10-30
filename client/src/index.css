@@ -338,9 +338,11 @@ img {
 	.search-results {
     flex-direction: column;
     height: 100%;
+    justify-content: center;
   }
 	.real-estate-agency {
 		width: 500px;
+		align-self: center;
 	}
 	
 	.map-container {
@@ -363,7 +365,7 @@ img {
 
 @media (max-width: 400px) {
 	.real-estate-agency {
-		width: 330px;
+		width: 300px;
 	}
 
 	.REA-distance {

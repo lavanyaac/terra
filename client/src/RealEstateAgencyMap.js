@@ -44,6 +44,8 @@ class RealEstateAgencyMap extends Component {
       marker.setMap(map);
     }
 
+    var markers = [];
+
     const markerImage = "/images/map-marker.png";
     for(const [i,point] of this.props.mapData.entries()){
 	    const marker = new google.maps.Marker({
@@ -61,14 +63,38 @@ class RealEstateAgencyMap extends Component {
         },
 	    });
       marker.setMap(map);
+      markers.push(marker);
 		}
 
-    // google.maps.event.addDomListener(window, "resize", function() {
-    //   var center = map.getCenter();
-    //   google.maps.event.trigger(map, "resize");
-    //   map.setCenter(center);
-    //   });
-  }
+
+   const bounds = new google.maps.LatLngBounds();
+   for (let i = 0; i < markers.length; i++) {
+       bounds.extend(markers[i].getPosition());
+   }
+
+   map.setCenter(bounds.getCenter());
+
+   map.fitBounds(bounds);
+
+
+   map.setZoom(map.getZoom() - 1);
+
+   if (map.getZoom() > 15) {
+       map.setZoom(15);
+   }
+
+   if (markers.length === 1) {
+       map.setMaxZoom(15);
+       map.fitBounds(bounds);
+       map.setMaxZoom(null);
+   }
+
+   google.maps.event.addDomListener(window, "resize", function() {
+       var center = map.getCenter();
+       google.maps.event.trigger(map, "resize");
+       map.setCenter(center);
+   });
+   }
 
   componentDidMount(){
     
